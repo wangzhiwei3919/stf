@@ -17,8 +17,7 @@ module.exports = function ShellCtrl($scope) {
   // TODO: Android 2.x doesn't support openSetting(), account for that on the UI
 
   function openSetting(activity) {
-    run('am start -a android.intent.action.MAIN -n com.android.settings/.Settings\\$' +
-    activity)
+    run('am start -a android.intent.action.MAIN -n com.android.settings/.Settings\\$' + activity)
   }
 
   $scope.openSettings = function() {
@@ -28,6 +27,29 @@ module.exports = function ShellCtrl($scope) {
   $scope.openWiFiSettings = function() {
     //openSetting('WifiSettingsActivity')
     run('am start -a android.settings.WIFI_SETTINGS')
+  }
+  
+  $scope.openWechatSettings = function() {
+    //openSetting('WifiSettingsActivity')
+    run('am start -n com.tencent.mm/com.tencent.mm.ui.LauncherUI')
+  }
+  
+  $scope.clockScreenSettings = function() {
+    //openSetting('WifiSettingsActivity')
+    run('input keyevent 26')
+  }
+  
+  $scope.unclockScreenSettings = function() {
+    //openSetting('WifiSettingsActivity')
+    run('input keyevent 82')
+  }
+  
+  $scope.rebootDevice = function() {
+    console.log("TCL: $scope.rebootDevice -> scope", $scope)
+    //openSetting('WifiSettingsActivity')
+    $scope.control.reboot().then(function(result) {
+      console.error(result)
+    })
   }
 
   $scope.openLocaleSettings = function() {

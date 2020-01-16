@@ -13,7 +13,7 @@
         .input-group
           span.input-group-addon
             i.fa.fa-user
-          input.form-control(ng-model='username', name='username', required, type='text', placeholder='Name',
+          input.form-control(ng-model='username', name='username', required, type='text', placeholder='用户名',
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login username')
         .alert.alert-warning(ng-show='signin.username.$dirty && signin.username.$invalid')
           span(translate) Please enter your name
@@ -28,4 +28,4 @@
           span(ng-show='signin.email.$error.email', translate) Please enter a valid email
           span(ng-show='signin.email.$error.required', translate) Please enter your email
 
-      input.btn.btn-lg.btn-primary.btn-block(type='submit', value='Log In')
+      input.btn.btn-lg.btn-primary.btn-block(type='submit', value='登陆')
